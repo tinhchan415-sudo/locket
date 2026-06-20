@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cảnh Báo Hệ Thống - DNS Locket 10s</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #090a0f;
+            color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Hiệu ứng ánh sáng nền mờ tạo chiều sâu */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(239, 68, 68, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 480px;
+            width: 100%;
+            background: rgba(17, 18, 24, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 40px 32px;
+            text-align: center;
+            z-index: 1;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .icon-box {
+            width: 64px;
+            height: 64px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 24px auto;
+            color: #ef4444;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 12px rgba(239, 68, 68, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+            }
+        }
+
+        .sub-title {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #9ca3af;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .highlight-scam {
+            color: #ef4444;
+            position: relative;
+            display: inline-block;
+            font-weight: 800;
+        }
+
+        .highlight-free {
+            background: linear-gradient(to right, #34d399, #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .desc {
+            font-size: 15px;
+            color: #9ca3af;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .links-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #e5e7eb;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-link:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            color: #ffffff;
+        }
+
+        .btn-link .arrow {
+            transition: transform 0.3s ease;
+            opacity: 0.6;
+        }
+
+        .btn-link:hover .arrow {
+            transform: translateX(4px);
+            opacity: 1;
+        }
+
+        /* Màu sắc tinh tế riêng cho từng nền tảng khi hover */
+        .btn-tiktok:hover {
+            border-color: rgba(254, 44, 85, 0.4);
+        }
+
+        .btn-zalo:hover {
+            border-color: rgba(0, 104, 255, 0.4);
+        }
+
+        footer {
+            margin-top: 32px;
+            font-size: 12px;
+            color: #4b5563;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+                <line x1="12" y1="9" x2="12" y2="13" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
+        </div>
+
+        <div class="sub-title">Thông Báo Khẩn Cấp</div>
+        <h1>Nếu bạn đã mua <br><strong>DNS Locket 10s</strong></h1>
+
+        <p class="desc">
+            Thì bạn đã bị <span class="highlight-scam">SCAM (LỪA ĐẢO)</span> rồi!<br>
+            Cấu hình này hoàn toàn <span class="highlight-free">FREE (MIỄN PHÍ)</span>.
+        </p>
+
+        <div class="links-group">
+            <a href="https://www.tiktok.com/@camsitup24" target="_blank" class="btn-link btn-tiktok">
+                <span>Kênh TikTok Chủ DNS</span>
+                <span class="arrow">➔</span>
+            </a>
+            <a href="https://zalo.me/0972477142" target="_blank" class="btn-link btn-zalo">
+                <span>Zalo Chủ DNS</span>
+                <span class="arrow">➔</span>
+            </a>
+            <a href="https://zalo.me/g/zxsrlr604" target="_blank" class="btn-link btn-zalo">
+                <span>Nhóm Zalo Chủ DNS</span>
+                <span class="arrow">➔</span>
+            </a>
+        </div>
+
+        <footer>ANTI-SCAM SYSTEM © 2026</footer>
+    </div>
+
+</body>
+
+</html>
